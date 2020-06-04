@@ -2,7 +2,7 @@ import telebot
 import config
 import random
 
-complements = [line.rstrip('\n') for line in open('complements.txt',encoding="utf-8"))]
+complements = [line.rstrip('\n') for line in open('complements.txt',encoding="utf-8")]
     
 bot = telebot.TeleBot(config.token)
 GROUP_ID=-1001156157193

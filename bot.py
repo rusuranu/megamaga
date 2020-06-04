@@ -9,11 +9,13 @@ def og_group(message):
     if ("Доброе утро" in message.text):
         bot.send_message(message.chat.id,"Наши девочки самые красивые!",reply_to_message_id=message.message_id)
 
+
+
 GROUP_ID_1=-1001383125195
 @bot.message_handler(func=lambda message: message.chat.id == GROUP_ID_1)
 def test_group(message):
     bot.send_message(message.chat.id, message.chat.id)
-    if ("Доброе утро" in message.text):
+    if ("Добр".lower() in message.text.lower() and "утро".lower() in message.text.lower()):
         bot.send_message(message.chat.id,"Наши девочки самые красивые!",reply_to_message_id=message.message_id)
 
 

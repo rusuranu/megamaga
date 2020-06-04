@@ -2,15 +2,14 @@ import telebot
 import config
 import random
 
-complements = [line.rstrip('\n') for line in open('complements.txt')]
+complements = [line.rstrip('\n') for line in open('complements.txt',encoding="utf-8"))]
     
 bot = telebot.TeleBot(config.token)
 GROUP_ID=-1001156157193
 @bot.message_handler(func=lambda message: message.chat.id == GROUP_ID)
 def og_group(message):
-    #bot.send_message(message.chat.id, message.chat.id)
-    if ("Доброе утро" in message.text):
-        bot.send_message(message.chat.id,"Наши девочки самые красивые!",reply_to_message_id=message.message_id)
+    if ("Добр".lower() in message.text.lower() and "утро".lower() in message.text.lower()):
+        bot.send_message(message.chat.id,complements[random.randint(0,len(complements)-1)],reply_to_message_id=message.message_id)
 
 
 

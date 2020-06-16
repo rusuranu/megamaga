@@ -31,8 +31,9 @@ def og_group(message):
                          greetings[random.randint(0,len(greetings)-1)],
                          reply_to_message_id=message.message_id)
         return 0
-
-
+    if ("наши девочки самые красивые".lower() in message.text.lower()):
+        bot.send_message(message.chat.id,"Очень красивые!",reply_to_message_id=message.message_id)
+        return 0
 
 GROUP_ID_1=-1001383125195
 @bot.message_handler(func=lambda message: message.chat.id == GROUP_ID_1)
@@ -54,6 +55,9 @@ def test_group(message):
         bot.send_message(message.chat.id,
                          greetings[random.randint(0,len(greetings)-1)].replace('%name%',message.from_user.username),
                          reply_to_message_id=message.message_id)
+        return 0
+    if ("наши девочки самые красивые".lower() in message.text.lower()):
+        bot.send_message(message.chat.id,"Очень красивые!",reply_to_message_id=message.message_id)
         return 0
 
 if __name__ == '__main__':
